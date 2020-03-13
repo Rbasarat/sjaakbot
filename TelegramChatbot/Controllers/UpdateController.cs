@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Telegram.Bot.Types;
 using TelegramChatbot.Interfaces;
 
@@ -21,7 +17,7 @@ namespace TelegramChatbot.Controllers
         }
 
         // POST api/update
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody]Update update)
         {
             await _updateService.EchoAsync(update);
