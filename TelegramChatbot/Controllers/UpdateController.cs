@@ -9,16 +9,16 @@ namespace TelegramChatbot.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class UpdateController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<UpdateController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public UpdateController(ILogger<UpdateController> logger)
         {
             _logger = logger;
         }
