@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramChatbot", "TelegramChatbot\TelegramChatbot.csproj", "{8E9DCDC5-7CFD-418C-B2B9-003E9B3CDAC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramChatbot", "TelegramChatbot\TelegramChatbot.csproj", "{8E9DCDC5-7CFD-418C-B2B9-003E9B3CDAC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "specialFiles", "specialFiles", "{7D69247B-2DB0-4A48-A70A-58F5EACD416C}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
