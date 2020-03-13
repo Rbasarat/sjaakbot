@@ -1,7 +1,7 @@
+using Serilog;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using TelegramChatbot.Interfaces;
@@ -11,12 +11,10 @@ namespace TelegramChatbot.Services
     public class UpdateService : IUpdateService
     {
         private readonly IBotService _botService;
-        private readonly ILogger<UpdateService> _logger;
 
-        public UpdateService(IBotService botService, ILogger<UpdateService> logger)
+        public UpdateService(IBotService botService)
         {
             _botService = botService;
-            _logger = logger;
         }
 
         public async Task EchoAsync(Update update)
@@ -26,7 +24,7 @@ namespace TelegramChatbot.Services
 
             var message = update.Message;
 
-            _logger.LogInformation("Received Message from {0}", message.Chat.Id);
+            Log.Information("Received Message from {0}", message.Chat.Id);
 
             switch (message.Type)
             {

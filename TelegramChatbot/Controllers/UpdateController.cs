@@ -4,36 +4,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Telegram.Bot.Types;
+using TelegramChatbot.Interfaces;
 
 namespace TelegramChatbot.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class UpdateController : ControllerBase
+    [Route("api/[controller]")]
+    public class UpdateController : Controller
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly IUpdateService _updateService;
 
-        private readonly ILogger<UpdateController> _logger;
-
-        public UpdateController(ILogger<UpdateController> logger)
+        public UpdateController(IUpdateService updateService)
         {
-            _logger = logger;
+            _updateService = updateService;
         }
 
+        // POST api/update
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IActionResult> Post([FromBody]Update update)
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            await _updateService.EchoAsync(update);
+            return Ok();
         }
     }
 }
